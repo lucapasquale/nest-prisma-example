@@ -31,6 +31,18 @@ export class AppController {
     });
   }
 
+  @Get('published-users')
+  async getPublishedUsers(): Promise<UserModel[]> {
+    const users = await this.userService.users({
+      where: {
+        posts: { some: { AND: [{ published: true }, { author: { id: 2 } }] } },
+      },
+      include: { posts: { where: { published: true } } },
+    });
+
+    return users;
+  }
+
   @Get('filtered-posts/:searchString')
   async getFilteredPosts(
     @Param('searchString') searchString: string,
