@@ -20,13 +20,12 @@ model User {
 }
 
 model Post {
-  id        Int      @id @default(autoincrement())
+  id        Int     @id @default(autoincrement())
   title     String
   content   String?
-  testField String?  @map("test_field")
-  published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  published Boolean @default(false)
+  user      User    @relation(fields: [userId], references: [id])
+  userId    Int     @map("user_id")
 
   @@map(name: "posts")
 }
