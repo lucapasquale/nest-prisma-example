@@ -11,7 +11,11 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "~posts/*": ["./src/posts/*"],
+      "~users/*": ["./src/users/*"],
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
 }

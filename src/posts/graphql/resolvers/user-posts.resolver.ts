@@ -1,6 +1,6 @@
 import { Resolver, ResolveField, Root } from '@nestjs/graphql'
 
-import { UserType } from '../../../users/graphql/types/user.type'
+import { UserType } from '~users/graphql/types/user.type'
 
 import { PostsService } from '../../posts.service'
 import { PostType } from '../types/post.type'
